@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MADANI TECH</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #020617;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* خلفية */
+        .bg-animation {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(0, 212, 255, .15);
+            top: -150px;
+            right: -100px;
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: move1 8s infinite alternate;
+        }
+
+        .bg-animation::after {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: rgba(255, 215, 0, .1);
+            bottom: -150px;
+            left: -100px;
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: move2 10s infinite alternate;
+        }
+
+        @keyframes move1 {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(50px);
+            }
+        }
+
+        @keyframes move2 {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(-50px);
+            }
+        }
+
+        /* Glass */
+        .glass {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            backdrop-filter: blur(15px);
+        }
+
+        /* Glow */
+        .neon-glow {
+            text-shadow:
+                0 0 10px #00d4ff,
+                0 0 20px #00d4ff,
+                0 0 40px #00d4ff;
+        }
+
+        .gold-glow {
+            text-shadow:
+                0 0 10px #ffd700,
+                0 0 20px #ffd700;
+        }
+
+        /* Hover */
+        .hover-card {
+            transition: .4s ease;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, .2);
+        }
+
+        /* Floating */
+        .floating {
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Navbar */
+        .nav-link {
+            position: relative;
+            transition: .3s;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: .3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00d4ff;
+            border-radius: 50px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- خلفية -->
+    <div class="bg-animation"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-cyan-500/20">
+
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- LOGO -->
+            <div class="flex items-center gap-3">
+
+                <i data-lucide="smartphone" class="w-8 h-8 text-cyan-400"></i>
+
+                <h1 class="font-black text-3xl font-[Orbitron]">
+
+                    <span class="text-yellow-400 gold-glow">TECH</span>
+
+                    <span class="text-cyan-400 neon-glow">MADANI</span>
+
+                </h1>
+
+            </div>
+
+            <!-- LINKS -->
+            <div class="hidden md:flex items-center gap-8">
+
+                <a href="#home" class="nav-link text-gray-300 hover:text-cyan-400">
+                    الرئيسية
+                </a>
+
+                <a href="#services" class="nav-link text-gray-300 hover:text-cyan-400">
+                    الخدمات
+                </a>
+
+                <a href="#stats" class="nav-link text-gray-300 hover:text-cyan-400">
+                    الإحصائيات
+                </a>
+
+                <a href="#reviews" class="nav-link text-gray-300 hover:text-cyan-400">
+                    الآراء
+                </a>
+
+                <a href="#contact" class="nav-link text-gray-300 hover:text-cyan-400">
+                    التواصل
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="min-h-screen flex items-center justify-center text-center px-5">
+
+        <div class="max-w-4xl">
+
+            <div class="inline-block px-5 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 mb-8">
+                🔥 أفضل الخدمات بأعلى جودة
+            </div>
+
+            <h1 class="font-black text-6xl md:text-8xl mb-6 font-[Orbitron]">
+
+                <span class="text-yellow-400 gold-glow">TECH</span>
+
+                <span class="text-cyan-400 neon-glow">MADANI</span>
+
+            </h1>
+
+            <p class="text-2xl text-gray-300 mb-6">
+                كلش في بلاصة وحدة 🔥
+            </p>
+
+            <p class="text-gray-400 leading-8 text-lg max-w-2xl mx-auto mb-10">
+                محل متخصص في إصلاح الهواتف، الطباعة،
+                Flash & Déblocage، والمستلزمات المكتبية
+                بخبرة وجودة عالية.
+            </p>
+
+            <!-- BUTTONS -->
+            <div class="flex flex-wrap justify-center gap-5">
+
+                <a href="#services"
+                    class="px-8 py-4 rounded-2xl bg-cyan-500 hover:bg-cyan-600 text-black font-black transition">
+                    خدماتنا
+                </a>
+
+                <a href="https://maps.app.goo.gl/U3cHfEeKhoRMSJz49?g_st=an"
+                    class="px-8 py-4 rounded-2xl border border-green-500 text-green-400 hover:bg-green-500/10 transition">
+                    الموقع
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61589422196252"
+                    class="px-8 py-4 rounded-2xl border border-blue-500 text-blue-400 hover:bg-blue-500/10 transition">
+                    Facebook
+                </a>
+
+            </div>
+
+            <!-- PHONE -->
+            <div class="mt-12 text-cyan-400 text-2xl font-black">
+                📞 0672543222
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STATS -->
+    <section id="stats" class="py-20 px-5">
+
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
+
+          
+            <div class="glass hover-card rounded-3xl p-8 text-center">
+                <h2 class="text-5xl font-black text-yellow-400 mb-3">24/7</h2>
+                <p class="text-gray-300">خدمة متواصلة</p>
+            </div>
+
+            <div class="glass hover-card rounded-3xl p-8 text-center">
+                <h2 class="text-5xl font-black text-green-400 mb-3">100%</h2>
+                <p class="text-gray-300">جودة مضمونة</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 px-5">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-16">
+
+                <h2 class="text-5xl font-black text-cyan-400 neon-glow mb-4 font-[Orbitron]">
+                    خدماتنا
+                </h2>
+
+                <p class="text-gray-400 text-lg">
+                    أفضل الخدمات بأعلى جودة
+                </p>
+
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- إصلاح الهواتف -->
+                <div class="glass hover-card rounded-3xl p-8 relative overflow-hidden">
+
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
+
+                    <div
+                        class="w-20 h-20 rounded-3xl bg-cyan-500/20 border border-cyan-400/20 flex items-center justify-center mb-8 floating">
+
+                        <i data-lucide="smartphone"
+                            class="w-10 h-10 text-cyan-400"></i>
+
+                    </div>
+
+                    <h3 class="text-3xl font-black mb-8 flex items-center gap-3">
+                        📱 إصلاح الهواتف
+                    </h3>
+
+                    <ul class="space-y-5 text-gray-300 text-lg">
+
+                        <li class="flex items-center justify-between">
+                            <span>تغيير الزجاج</span>
+                            <i data-lucide="check-circle" class="w-6 h-6 text-cyan-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>إصلاح الأعطال</span>
+                            <i data-lucide="check-circle" class="w-6 h-6 text-cyan-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>صيانة البطارية</span>
+                            <i data-lucide="battery-charging" class="w-6 h-6 text-green-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>تحديث الأنظمة</span>
+                            <i data-lucide="refresh-cw" class="w-6 h-6 text-yellow-400"></i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Flash -->
+                <div class="glass hover-card rounded-3xl p-8 relative overflow-hidden">
+
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
+
+                    <div
+                        class="w-20 h-20 rounded-3xl bg-pink-500/20 border border-pink-400/20 flex items-center justify-center mb-8 floating">
+
+                        <i data-lucide="unlock"
+                            class="w-10 h-10 text-pink-400"></i>
+
+                    </div>
+
+                    <h3 class="text-3xl font-black mb-8 flex items-center gap-3">
+                        🔓 Flash & Déblocage
+                    </h3>
+
+                    <ul class="space-y-5 text-gray-300 text-lg">
+
+                        <li class="flex items-center justify-between">
+                            <span>Flash Android</span>
+                            <i data-lucide="cpu" class="w-6 h-6 text-pink-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>Déblocage</span>
+                            <i data-lucide="unlock-keyhole" class="w-6 h-6 text-pink-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>إزالة FRP</span>
+                            <i data-lucide="shield-check" class="w-6 h-6 text-green-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>فورمات وتحديث</span>
+                            <i data-lucide="rotate-cw" class="w-6 h-6 text-yellow-400"></i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- الطباعة -->
+                <div class="glass hover-card rounded-3xl p-8 relative overflow-hidden">
+
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl"></div>
+
+                    <div
+                        class="w-20 h-20 rounded-3xl bg-green-500/20 border border-green-400/20 flex items-center justify-center mb-8 floating">
+
+                        <i data-lucide="printer"
+                            class="w-10 h-10 text-green-400"></i>
+
+                    </div>
+
+                    <h3 class="text-3xl font-black mb-8 flex items-center gap-3">
+                        🖨️ الطباعة
+                    </h3>
+
+                    <ul class="space-y-5 text-gray-300 text-lg">
+
+                        <li class="flex items-center justify-between">
+                            <span>Impression</span>
+                            <i data-lucide="file-text" class="w-6 h-6 text-green-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>Photocopie</span>
+                            <i data-lucide="copy" class="w-6 h-6 text-green-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>طباعة البحوث</span>
+                            <i data-lucide="book-open" class="w-6 h-6 text-cyan-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>سكانير</span>
+                            <i data-lucide="scan-line" class="w-6 h-6 text-yellow-400"></i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- المكتبة -->
+                <div class="glass hover-card rounded-3xl p-8 relative overflow-hidden">
+
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl"></div>
+
+                    <div
+                        class="w-20 h-20 rounded-3xl bg-yellow-500/20 border border-yellow-400/20 flex items-center justify-center mb-8 floating">
+
+                        <i data-lucide="book-open"
+                            class="w-10 h-10 text-yellow-400"></i>
+
+                    </div>
+
+                    <h3 class="text-3xl font-black mb-8 flex items-center gap-3">
+                        📚 المكتبة
+                    </h3>
+
+                    <ul class="space-y-5 text-gray-300 text-lg">
+
+                        <li class="flex items-center justify-between">
+                            <span>أدوات مدرسية</span>
+                            <i data-lucide="pencil" class="w-6 h-6 text-yellow-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>لوازم مكتبية</span>
+                            <i data-lucide="briefcase" class="w-6 h-6 text-yellow-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>دفاتر وأقلام</span>
+                            <i data-lucide="notebook-tabs" class="w-6 h-6 text-cyan-400"></i>
+                        </li>
+
+                        <li class="flex items-center justify-between">
+                            <span>ملفات وأوراق</span>
+                            <i data-lucide="folder" class="w-6 h-6 text-green-400"></i>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="py-24 px-5">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-16">
+
+                <h2 class="text-5xl font-black text-cyan-400 neon-glow mb-4 font-[Orbitron]">
+                    آراء الزبائن
+                </h2>
+
+                <p class="text-gray-400">
+                    ماذا يقول عملاؤنا
+                </p>
+
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="glass hover-card rounded-3xl p-8">
+                    <div class="text-yellow-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 leading-8">
+                        خدمة ممتازة وسريعة جدًا وأنصح الجميع بالتعامل معهم.
+                    </p>
+                </div>
+
+                <div class="glass hover-card rounded-3xl p-8">
+                    <div class="text-yellow-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 leading-8">
+                        محل احترافي فيه كل شيء من الطباعة للإصلاح.
+                    </p>
+                </div>
+
+                <div class="glass hover-card rounded-3xl p-8">
+                    <div class="text-yellow-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-300 leading-8">
+                        أسعار ممتازة وخدمة احترافية وشغل نظيف.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 px-5">
+
+        <div class="max-w-6xl mx-auto">
+
+            <div class="text-center mb-16">
+
+                <h2 class="text-5xl font-black text-cyan-400 neon-glow mb-4 font-[Orbitron]">
+                    تواصل معنا
+                </h2>
+
+                <p class="text-gray-400">
+                    نحن هنا لخدمتكم
+                </p>
+
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <!-- INFO -->
+                <div class="space-y-6">
+
+                    <div class="glass rounded-3xl p-6 flex items-center gap-5">
+
+                        <div class="w-16 h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
+                            <i data-lucide="phone" class="w-8 h-8 text-cyan-400"></i>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 mb-1">الهاتف</p>
+                            <p class="text-xl font-black">0672543222</p>
+                        </div>
+
+                    </div>
+
+                   <div class="glass rounded-3xl p-6 flex items-center gap-5">
+
+    <div class="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center">
+
+        <!-- Facebook SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-8 h-8 text-blue-400"
+             fill="currentColor"
+             viewBox="0 0 24 24">
+
+            <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34V22c4.78-.74 8.44-4.91 8.44-9.93z"/>
+        
+        </svg>
+
+    </div>
+
+    <div>
+
+        <p class="text-gray-400 mb-1">
+            Facebook
+        </p>
+
+        <p class="text-xl font-black">
+            MADANI TECH
+        </p>
+
+    </div>
+
+</div>
+
+                        <!-- Facebook Floating -->
+<a href="https://facebook.com"
+   target="_blank"
+   class="fixed bottom-28 left-6 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-2xl shadow-blue-500/40 hover:scale-110 transition z-50">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         class="w-8 h-8 text-white"
+         fill="currentColor"
+         viewBox="0 0 24 24">
+
+        <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.9h-2.34V22c4.78-.74 8.44-4.91 8.44-9.93z"/>
+    </svg>
+
+</a>
+
+                    <div class="glass rounded-3xl p-6 flex items-center gap-5">
+
+                        <div class="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center">
+                            <i data-lucide="map-pin" class="w-8 h-8 text-green-400"></i>
+                        </div>
+
+                        <div>
+                            <p class="text-gray-400 mb-1">الموقع</p>
+                            <p class="text-xl font-black">Google Maps</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- FORM -->
+                <form class="glass rounded-3xl p-8 space-y-6">
+
+                    <div>
+
+                        <label class="block text-gray-400 mb-2">
+                            الاسم
+                        </label>
+
+                        <input type="text"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-2xl px-5 py-4 outline-none focus:border-cyan-500"
+                            placeholder="اسمك الكامل">
+
+                    </div>
+
+                    <div>
+
+                        <label class="block text-gray-400 mb-2">
+                            الرسالة
+                        </label>
+
+                        <textarea rows="5"
+                            class="w-full bg-gray-900 border border-gray-700 rounded-2xl px-5 py-4 outline-none focus:border-cyan-500 resize-none"
+                            placeholder="اكتب رسالتك هنا..."></textarea>
+
+                    </div>
+
+                    <button
+                        class="w-full py-4 rounded-2xl bg-cyan-500 hover:bg-cyan-600 text-black font-black text-lg transition">
+                        إرسال الرسالة
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-cyan-500/10 py-10 px-5">
+
+        <div class="max-w-7xl mx-auto text-center">
+
+            <h2 class="text-4xl font-black mb-4 font-[Orbitron]">
+
+                <span class="text-yellow-400 gold-glow">TECH</span>
+
+                <span class="text-cyan-400 neon-glow">MADANI</span>
+
+            </h2>
+
+            <p class="text-gray-500 mb-3">
+                كلش في بلاصة وحدة 🔥
+            </p>
+
+            <p class="text-gray-600 text-sm">
+                © 2026 جميع الحقوق محفوظة
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- زر واتساب -->
+    <a href="https://wa.me/213672543222"
+        class="fixed bottom-6 left-6 w-16 h-16 rounded-full bg-green-500 flex items-center justify-center shadow-2xl shadow-green-500/40 hover:scale-110 transition z-50">
+
+        <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+
+    </a>
+
+    <!-- ICONS -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
